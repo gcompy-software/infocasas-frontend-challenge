@@ -1,21 +1,17 @@
 import Head from 'next/head'
+import Moment from 'moment'
 import Axios from 'axios'
 
 const TaskDestail = ({ taskdet }) => (
-    <div>
-      <Head>
-        <title>{taskdet.title} | {process.env.SITE_NAME} </title>
-      </Head>
-      
       <main>
         <div>
-          <h2>{taskdet.id}</h2>
-          <p>{taskdet.state}</p>
-          <span>{`Escrito por el usuario ${taskdet.person}`}</span>
+          <h1>#{taskdet.id}: {taskdet.title}</h1>
+          <p>Status: {taskdet.state}</p>
+          <p>Created: {Moment.unix(taskdet.created).format("DD/MM/YYYY")}</p>
+          <p>Expire: {Moment.unix(taskdet.deadline).format("DD/MM/YYYY")}</p>
+          <p>User: {taskdet.person}</p>
         </div>
       </main>
-    
-    </div>
     
   )
   
