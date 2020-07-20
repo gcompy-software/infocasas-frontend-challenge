@@ -3,7 +3,7 @@ import Dashboard from '../components/main/Dashboard'
 import Axios from 'axios'
 
 
-const Home = ({ tasks }) => (
+const Home = () => (
   
   <div>
     <NextSeo
@@ -30,7 +30,7 @@ const Home = ({ tasks }) => (
       }}
     />
 
-    <Dashboard tasks={ tasks } />
+    { <Dashboard  /> }
     
     
 
@@ -38,17 +38,5 @@ const Home = ({ tasks }) => (
   </div>
 )
 
-export async function getStaticProps() {
-  let tasks = {}
-  await Axios.get(`${process.env.API_TODO}/tasks`)
-                            .then(resp => {
-                              tasks = resp.data 
-                            })
-  return {
-    props: {
-      tasks
-    }
-  }
-}
 
 export default Home
