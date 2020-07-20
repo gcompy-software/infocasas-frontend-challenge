@@ -1,0 +1,88 @@
+{
+    "tasks": [
+      { "id": 1,
+        "title": "Importar estilos CSS",
+        "person": "Admin",
+        "state": "todo",
+        "deadline": 1591802130,
+        "created": 1591370128
+      },
+      { "id": 2,
+        "title": "Importar librerías necesarias",
+        "person": "Admin",
+        "state": "todo",
+        "deadline": 1591802130,
+        "created": 1591370128
+      },
+      { "id": 3,
+        "title": "Escribir scripts",
+        "person": "Admin",
+        "state": "todo",
+        "deadline": 1591802130,
+        "created": 1591370128
+      },
+      { "id": 4,
+        "title": "Subir el proyecto a la nube",
+        "person": "Admin",
+        "state": "progress",
+        "deadline": 1591802130,
+        "created": 1591370128
+      },
+      { "id": 5,
+        "title": "Marcado HTML del proyecto",
+        "person": "Admin",
+        "state": "done",
+        "deadline": 1591802130,
+        "created": 1591370128
+      },
+      { "id": 6,
+        "title": "Planificar el proyecto",
+        "person": "Admin",
+        "state": "done",
+        "deadline": 1591802130,
+        "created": 1591370128
+      },
+      { "id": 7,
+        "title": "Crear API",
+        "person": "Guido Miranda",
+        "state": "todo",
+        "deadline": 1591802130,
+        "created": 1591370128
+      },
+      { "id": 8,
+        "title": "Importar librerías necesarias",
+        "person": "Crear entorno de Desarrollo",
+        "state": "todo",
+        "deadline": 1591802130,
+        "created": 1591370128
+      },
+      { "id": 9,
+        "title": "Crear Entorno de Producción",
+        "person": "Guido Miranda",
+        "state": "todo",
+        "deadline": 1591802130,
+        "created": 1591370128
+      },
+      { "id": 10,
+        "title": "Subir el proyecto a la nube",
+        "person": "Guido Miranda",
+        "state": "progress",
+        "deadline": 1591802130,
+        "created": 1591370128
+      },
+      { "id": 11,
+        "title": "Optimizar Base de Datos",
+        "person": "Guido Miranda",
+        "state": "done",
+        "deadline": 1591802130,
+        "created": 1591370128
+      },
+      { "id": 12,
+        "title": "Testear Performance",
+        "person": "Guido Miranda",
+        "state": "done",
+        "deadline": 1591802130,
+        "created": 1591370128
+      }
+    ]
+  }
