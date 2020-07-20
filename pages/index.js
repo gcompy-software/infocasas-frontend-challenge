@@ -1,6 +1,7 @@
 import { NextSeo } from 'next-seo'
 import Dashboard from '../components/main/Dashboard'
 import Axios from 'axios'
+import TaskForm from '../components/main/TaskForm'
 
 const Home = ({ tasks }) => (
   
@@ -30,7 +31,8 @@ const Home = ({ tasks }) => (
     />
 
     <Dashboard tasks={ tasks } />
-     
+    
+    <TaskForm />
 
     <span>© 2020 gcompy software</span>
   </div>
