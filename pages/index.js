@@ -1,5 +1,5 @@
 import { NextSeo } from 'next-seo'
-import Task from '../components/main/Task'
+import Dashboard from '../components/main/Dashboard'
 import Axios from 'axios'
 
 const Home = ({ tasks }) => (
@@ -28,28 +28,10 @@ const Home = ({ tasks }) => (
         cardType: "summary_large_image"
       }}
     />
-    
-      <div className="ed-grid m-grid-3 row-gap" id="todo" >
-        <h1>TODO</h1>
-        {
-         tasks.map(p => p.state == "todo" && <Task key={p.id} tasks={p} />)
-        }
-      </div>
 
-      <div className="ed-grid m-grid-3 row-gap" id="progress" >
-        <h1>PROGRESS</h1>
-        {
-         tasks.map(p => p.state == "progress" && <Task key={p.id} tasks={p} />)
-        }
-      </div>
+    <Dashboard tasks={ tasks } />
+     
 
-      <div className="ed-grid m-grid-3 row-gap" id="done">
-        <h1>DONE</h1>
-        {
-         tasks.map(p => p.state == "done" && <Task key={p.id} tasks={p} />)
-        }
-      </div>
- 
     <span>© 2020 gcompy software</span>
   </div>
 )
@@ -58,7 +40,7 @@ export async function getStaticProps() {
   let tasks = {}
   await Axios.get(`${process.env.API_TODO}/tasks`)
                             .then(resp => {
-                              tasks = resp.data
+                              tasks = resp.data.filter(resp => resp.person = "Admin" )
                             })
   return {
     props: {
