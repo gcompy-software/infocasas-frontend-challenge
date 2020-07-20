@@ -1,7 +1,9 @@
 import { NextSeo } from 'next-seo'
 import Task from '../components/main/Task'
+import Axios from 'axios'
 
 const Home = ({ tasks }) => (
+  
   <div>
     <NextSeo
       title="InfoCasas: Alquiler y venta de departamentos y casas en Paraguay"
@@ -27,22 +29,37 @@ const Home = ({ tasks }) => (
       }}
     />
     
-    <div>
-      <h1>{process.env.SITE_NAME} </h1>
-      <div className="ed-grid m-grid-3 row-gap">
+      <div className="ed-grid m-grid-3 row-gap" id="todo" >
+        <h1>TODO</h1>
         {
-          tasks.map(p => <Task key={p.id} task={p} />)
+         tasks.map(p => p.state == "todo" && <Task key={p.id} tasks={p} />)
         }
       </div>
-    </div>
+
+      <div className="ed-grid m-grid-3 row-gap" id="progress" >
+        <h1>PROGRESS</h1>
+        {
+         tasks.map(p => p.state == "progress" && <Task key={p.id} tasks={p} />)
+        }
+      </div>
+
+      <div className="ed-grid m-grid-3 row-gap" id="done">
+        <h1>DONE</h1>
+        {
+         tasks.map(p => p.state == "done" && <Task key={p.id} tasks={p} />)
+        }
+      </div>
+ 
     <span>© 2020 gcompy software</span>
   </div>
 )
 
 export async function getStaticProps() {
-  const resp = await fetch(`${process.env.API_TODO}/todos`)
-  const tasks = await resp.json()
-  
+  let tasks = {}
+  await Axios.get(`${process.env.API_TODO}/tasks`)
+                            .then(resp => {
+                              tasks = resp.data
+                            })
   return {
     props: {
       tasks

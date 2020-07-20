@@ -7,9 +7,9 @@ module.exports = phase => {
         SITE_NAME: "Todo-InfoCasas",
         API_TODO: (()=>{
             if (isDevelopment){
-                return "https://jsonplaceholder.typicode.com"
+                return "https://my-json-server.typicode.com/gcompy-software/infocasas-frontend-challenge"
             } else {
-                return "https://jsonplaceholder.typicode.com"
+                return "https://my-json-server.typicode.com/gcompy-software/infocasas-frontend-challenge"
             }
         })()
     }

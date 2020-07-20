@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Axios from 'axios'
 
 const TaskDestail = ({ taskdet }) => (
     <div>
@@ -8,8 +9,9 @@ const TaskDestail = ({ taskdet }) => (
       
       <main>
         <div>
-          <h1>{taskdet.title}</h1>
-          <p>{taskdet.completed}</p>
+          <h2>{taskdet.id}</h2>
+          <p>{taskdet.state}</p>
+          <span>{`Escrito por el usuario ${taskdet.person}`}</span>
         </div>
       </main>
     
@@ -18,9 +20,10 @@ const TaskDestail = ({ taskdet }) => (
   )
   
   TaskDestail.getInitialProps = async function (context) {
-    const { id } = context.query  
-    const resp = await fetch(`${process.env.API_TODO}/todos/${id}`)
-    const taskdet = await resp.json()
+    const { id } = context.query
+    let taskdet = {}  
+    await Axios.get(`${process.env.API_TODO}/tasks/${id}`)
+                        .then( resp =>{taskdet = resp.data})
 
     return {
       taskdet
